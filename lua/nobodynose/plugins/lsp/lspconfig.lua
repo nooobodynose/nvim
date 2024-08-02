@@ -64,6 +64,9 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+				opts.desc = "Resume Telescope"
+				keymap.set("n", "<leader>rR", ":Telescope resume<CR>", opts) -- mapping to resume telescope
 			end,
 		})
 
@@ -102,6 +105,18 @@ return {
 							},
 							completion = {
 								callSnippet = "Replace",
+							},
+						},
+					},
+				})
+			end,
+			["tsserver"] = function()
+				lspconfig["tsserver"].setup({
+					capabilities = capabilities,
+					settings = {
+						typescript = {
+							preferences = {
+								importModuleSpecifierPreference = "non-relative",
 							},
 						},
 					},

@@ -27,8 +27,12 @@ return {
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
+				"tsserver",
 				"ruff_lsp",
 				"pyright",
+				"html",
+				"cssls",
+				"tailwindcss",
 			},
 		})
 
@@ -39,6 +43,7 @@ return {
 				"isort",
 				"black",
 				"ruff",
+				"eslint_d",
 			},
 		})
 	end,
